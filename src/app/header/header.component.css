@@ -1,5 +1,9 @@
 h1 {
     margin: 0;
     padding: 0;
-    margin-right: 20px;
+    color: #3877db;
+}
+.container {
+    display: flex;
+    gap: 10px;
 }
