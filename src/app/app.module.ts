@@ -7,10 +7,11 @@ import { AppComponent } from './app/app.component';
 import { HeaderComponent } from './header/header.component';
 import {ButtonModule} from 'primeng/button';
 import {ToolbarModule} from 'primeng/toolbar';
-import { HomeComponent } from './home/home.component';
+
 import {CarouselModule} from 'primeng/carousel';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
