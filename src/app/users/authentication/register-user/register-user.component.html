@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+            <div class="mb-3 row">
+                <label for="email" class="col-form-label col-sm-2">Email</label>
+                <div class="col-md-5">
+                    <input type="text" id="Email" formControlName="email" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="firstName" class="col-form-label col-sm-2">Phone number:</label>
+                <div class="col-md-5">
+                    <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="firstName" class="col-form-label col-sm-2">First Name:</label>
+                <div class="col-md-5">
+                    <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

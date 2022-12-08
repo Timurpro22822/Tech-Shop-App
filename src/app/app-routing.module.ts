@@ -6,7 +6,8 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'products', component: ProductListComponent }
+  { path: 'products', component: ProductListComponent },
+  { path : 'authentication', loadChildren: () => import('./users/authentication/authentication.module').then(m => m.AuthenticationModule) },
 ]
 
 @NgModule({
