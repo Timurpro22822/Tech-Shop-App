@@ -20,8 +20,8 @@ export class UserService {
   //   return this.http.get<IUser[]>(this.controllerUrl + "all")
   //  }
 
-   public registerUser = (body: IUser) => {
-    return this.http.post<UserResponse> (this.controllerUrl + "register", body);
+   registerUser(post: IUser): Observable<IUser> {
+    return this.http.post<IUser> (this.controllerUrl + "register", post);
    }
 
 }

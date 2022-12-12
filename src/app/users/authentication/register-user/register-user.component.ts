@@ -10,8 +10,9 @@ import { UserService } from '../../user.service';
 })
 export class RegisterUserComponent implements OnInit {
   
-  constructor(private userService: UserService) { 
-  }
+  
+  constructor(private userService: UserService) { }
+
   registerForm = new FormGroup ({
     email: new FormControl('', [Validators.required, Validators.email]),
     phoneNumber: new FormControl(''),
