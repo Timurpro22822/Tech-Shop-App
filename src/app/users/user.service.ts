@@ -28,4 +28,7 @@ export class UserService {
       return this.http.post<UserResponse> (this.controllerUrl + "register", post)
    }
 
+   public loginUser = (post: IUser) => {
+    return this.http.post<UserResponse> (this.controllerUrl + "login", post)
+   }
 }

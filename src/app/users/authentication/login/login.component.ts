@@ -5,18 +5,15 @@ import { IUser } from '../../user';
 import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-register-user',
-  templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class RegisterUserComponent implements OnInit {
-  
-  
+export class LoginComponent implements OnInit {
   constructor(private userService: UserService) { }
 
-  registerForm = new FormGroup ({
+  loginForm = new FormGroup ({
     email: new FormControl('', [Validators.required, Validators.email]),
-    phoneNumber: new FormControl(''),
     password: new FormControl('', [Validators.required]),
   });
 
@@ -24,29 +21,27 @@ export class RegisterUserComponent implements OnInit {
   }
 
   public validateControl = (controlName: string) => {
-    return this.registerForm.get(controlName)?.invalid && this.registerForm.get(controlName)?.touched
+    return this.loginForm.get(controlName)?.invalid && this.loginForm.get(controlName)?.touched
   }
 
   public hasError = (controlName: string, errorName: string) => {
-    return this.registerForm.get(controlName)?.hasError(errorName)
+    return this.loginForm.get(controlName)?.hasError(errorName)
   }
 
-  public registerUser = (registerFormValue: any) => {
-    const formValues = { ...registerFormValue };
+  public loginUser = (loginFormValue: any) => {
+    const formValues = { ...loginFormValue };
     const user: IUser = {
       email: formValues.email,
-      phoneNumber: formValues.phoneNumber,
       password: formValues.password
     };
 
-   
-    this.userService.registerUser(user)
+
+    this.userService.loginUser(user)
     .subscribe({
-      next: (_) => alert("Successful registration"),
-      error: (err: HttpErrorResponse) => console.log(err.error.errors)
+      next: (_) => alert("Successful login!"),
+      error: (err: HttpErrorResponse) => alert(err.error.errors)
     })
     
-    
-  }
 
+  }
 }
