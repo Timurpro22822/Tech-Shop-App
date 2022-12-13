@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '../../user';
@@ -22,6 +23,14 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public validateControl = (controlName: string) => {
+    return this.registerForm.get(controlName)?.invalid && this.registerForm.get(controlName)?.touched
+  }
+
+  public hasError = (controlName: string, errorName: string) => {
+    return this.registerForm.get(controlName)?.hasError(errorName)
+  }
+
   public registerUser = (registerFormValue: any) => {
     const formValues = { ...registerFormValue };
     const user: IUser = {
@@ -32,7 +41,9 @@ export class RegisterUserComponent implements OnInit {
 
     this.userService.registerUser(user)
     .subscribe({
-      next: (_) => console.log("Successful registration")})
+      next: (_) => console.log("Successful registration"),
+      error: (err: HttpErrorResponse) => console.log(err.error.errors)
+    })
   }
 
 }

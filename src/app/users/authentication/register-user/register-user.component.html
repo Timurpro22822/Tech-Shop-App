@@ -4,7 +4,11 @@
             <div class="mb-3 row">
                 <label for="email" class="col-form-label col-sm-2">Email</label>
                 <div class="col-md-5">
-                    <input type="text" id="Email" formControlName="email" class="form-control" />
+                    <input type="text" id="email" formControlName="email" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
+                    <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -14,9 +18,12 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="password" class="col-form-label col-sm-2">First Name:</label>
+                <label for="password" class="col-form-label col-sm-2">Password:</label>
                 <div class="col-md-5">
-                    <input type="text" id="password" formControlName="password" class="form-control" />
+                    <input type="password" id="password" formControlName="password" class="form-control" />
+                </div>
+                <div class="col-md-5">
+                    <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
                 </div>
             </div>
             <br>
