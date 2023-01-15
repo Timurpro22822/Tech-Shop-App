@@ -7,7 +7,7 @@ import { UserService } from '../../user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css', '../user-style.css']
 })
 export class LoginComponent implements OnInit {
   constructor(private userService: UserService) { }
@@ -41,7 +41,5 @@ export class LoginComponent implements OnInit {
       next: (_) => alert("Successful login!"),
       error: (err: HttpErrorResponse) => alert(err.error.errors)
     })
-    
-
   }
 }

@@ -1,31 +1,32 @@
-<div class="card">
-    <div class="card-body">
-        <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
-            <div class="main-div">
-                <label for="email" class="col-form-label col-sm-2">Email</label>
-                <div>
-                    <input type="text" id="email" formControlName="email" class="form-control" />
+<body>
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+                <div class="main-div">
+                    <label for="email" class="col-form-label col-sm-2">Email</label>
+                    <div>
+                        <input type="text" id="email" formControlName="email" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
+                        <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
-                    <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+                <div class="main-div">
+                    <label for="password" class="col-form-label col-sm-2">Password:</label>
+                    <div class="col-md-5">
+                        <input type="password" id="password" formControlName="password" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+                    </div>
                 </div>
-            </div>
-            <div class="main-div">
-                <label for="password" class="col-form-label col-sm-2">Password:</label>
-                <div class="col-md-5">
-                    <input type="password" id="password" formControlName="password" class="form-control" />
+                <div class="main-div">
+                    <div class="col-md-1">          
+                        <button type="submit" class="btn btn-info" [disabled]="!loginForm.valid">Login</button>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
-                </div>
-            </div>
-            <br>
-            <div class="main-div">
-                <div class="col-md-1">          
-                    <button type="submit" class="btn btn-info" [disabled]="!loginForm.valid">Login</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
+</body>

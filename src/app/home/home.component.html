@@ -4,7 +4,7 @@
             <div class="product-item">
                 <div class="product-item-content">
                     <div class="mb-3">
-                        <a href="">
+                        <a routerLink="/">
                             <img src="{{product.imagePath}}" [alt]="product.name" class="product-image" />
                         </a>
                     </div>
@@ -12,7 +12,9 @@
                         <h3 class="mb-1">{{product.name}}</h3>
                         <h4 class="mt-0 mb-3">${{product.price}}</h4>
                         <div class="buttons">
-                            <p-button type="button" styleClass="p-button-outlined p-button-rounded p-mr-2" icon="pi pi-shopping-cart"></p-button>
+                            <a href="">
+                                <p-button type="button" styleClass="p-button-outlined p-button-rounded p-mr-2" label="Buy" icon="pi pi-shopping-cart"></p-button>
+                            </a>
                         </div>
                     </div>
                 </div>

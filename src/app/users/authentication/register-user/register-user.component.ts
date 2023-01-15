@@ -7,7 +7,7 @@ import { UserService } from '../../user.service';
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.css']
+  styleUrls: ['./register-user.component.css', '../user-style.css']
 })
 export class RegisterUserComponent implements OnInit {
   
@@ -45,8 +45,5 @@ export class RegisterUserComponent implements OnInit {
       next: (_) => alert("Successful registration"),
       error: (err: HttpErrorResponse) => console.log(err.error.errors)
     })
-    
-    
   }
-
 }
